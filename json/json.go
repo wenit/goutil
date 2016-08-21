@@ -11,7 +11,7 @@ import "encoding/json"
 示例代码：
 	student := Student{}
 	fmt.Println("初始：", student)
-	json := `{"name":"章文兵","age":27,"Classes":["Math","English","Chinese"]}`
+	json := `{"name":"","age":27,"Classes":["Math","English","Chinese"]}`
 	ToJson(json, &student)
 	fmt.Println("转换后：", student)
 */
@@ -23,7 +23,7 @@ func ToJson(s string, v interface{}) error {
 /*
 将对象转换成字符串
 示例代码：
-	student := Student{Person:Person{"章文兵", 27}, Classes:[]string{"Math", "English", "Chinese"}, }
+	student := Student{Person:Person{"", 27}, Classes:[]string{"Math", "English", "Chinese"}, }
 	json := JsonToString(student)
 	fmt.Println(json)
  */

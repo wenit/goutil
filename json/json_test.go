@@ -17,7 +17,7 @@ type Student struct {
 }
 
 func TestJsonToString(t *testing.T) {
-	student := Student{Person:Person{"章文兵", 27}, Classes:[]string{"Math", "English", "Chinese"}, }
+	student := Student{Person:Person{"", 27}, Classes:[]string{"Math", "English", "Chinese"}, }
 	json := JsonToString(student)
 	fmt.Println(json)
 }
@@ -25,7 +25,7 @@ func TestJsonToString(t *testing.T) {
 func TestToJson(t *testing.T) {
 	student := Student{}
 	fmt.Println("初始：", student)
-	json := `{"name":"章文兵","age":27,"Classes":["Math","English","Chinese"]}`
+	json := `{"name":"","age":27,"Classes":["Math","English","Chinese"]}`
 	ToJson(json, &student)
 
 	fmt.Println("转换后：", student)

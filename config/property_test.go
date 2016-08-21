@@ -28,7 +28,7 @@ func TestLoad(t *testing.T) {
 
 	v1 := p.Get("name", 1)
 
-	fmt.Println(v1 == "章文兵", "type:", reflect.TypeOf(v1))
+	fmt.Println(v1 == "", "type:", reflect.TypeOf(v1))
 
 	v2 := p.GetBool("bool")
 
