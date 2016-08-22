@@ -52,12 +52,7 @@ func GetDateTime() string {
 @return	Time	时间类型
  */
 func ParseDate(value string) time.Time {
-	loc, _ := time.LoadLocation("Local")
-	t,err:=time.ParseInLocation(DATE_FORMAT_LAYOUT,value,loc)
-	if err != nil {
-		fmt.Println(err)
-	}
-	return t
+	return ParseByLayout(value,DATE_FORMAT_LAYOUT)
 }
 
 /**
@@ -67,12 +62,7 @@ func ParseDate(value string) time.Time {
 @return	Time	时间类型
  */
 func ParseTime(value string) time.Time {
-	loc, _ := time.LoadLocation("Local")
-	t,err:=time.ParseInLocation(TIME_FORMAT_LAYOUT,value,loc)
-	if err != nil {
-		fmt.Println(err)
-	}
-	return t
+	return ParseByLayout(value,TIME_FORMAT_LAYOUT)
 }
 
 /**
