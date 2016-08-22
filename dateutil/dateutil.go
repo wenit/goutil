@@ -5,43 +5,47 @@ import (
 	"fmt"
 )
 
-const DATE_FORMAT_LAYOUT  = "2006-01-02"
-const TIME_FORMAT_LAYOUT  = "15:04:05"
-const DATE_TIME_FORMAT_LAYOUT  = "2006-01-02 15:04:05"
+const DATE_FORMAT_LAYOUT = "2006-01-02"
+const TIME_FORMAT_LAYOUT = "15:04:05"
+const DATE_TIME_FORMAT_LAYOUT = "2006-01-02 15:04:05"
 
 /**
 获取当前日期
 转换模板：2006-01-02
-return	string
+@return	string
  */
 func GetDate() string {
-	timestamp:=time.Now().Unix()
-	tm:=time.Unix(timestamp,0)
-	_date:=tm.Format(DATE_FORMAT_LAYOUT)
-	return _date
+	return GetDateByLayout(DATE_FORMAT_LAYOUT)
 }
 
 /**
 获取当前时间
 转换模板：15:04:05
-return	string
+@return	string
  */
 func GetTime() string {
-	timestamp:=time.Now().Unix()
-	tm:=time.Unix(timestamp,0)
-	_date:=tm.Format(TIME_FORMAT_LAYOUT)
-	return _date
+	return GetDateByLayout(TIME_FORMAT_LAYOUT)
 }
+
 
 /**
 获取当前日期+时间
 转换模板：2006-01-02 15:04:05
-return	string
+@return	string
  */
 func GetDateTime() string {
-	timestamp:=time.Now().Unix()
-	tm:=time.Unix(timestamp,0)
-	_date:=tm.Format(DATE_TIME_FORMAT_LAYOUT)
+	return GetDateByLayout(DATE_TIME_FORMAT_LAYOUT)
+}
+
+/**
+获取指定格式的当前日期字符串
+@param	layout	日期模板
+@return	string
+ */
+func GetDateByLayout(layout string) string {
+	timestamp := time.Now().Unix()
+	tm := time.Unix(timestamp, 0)
+	_date := tm.Format(layout)
 	return _date
 }
 
@@ -52,7 +56,7 @@ func GetDateTime() string {
 @return	Time	时间类型
  */
 func ParseDate(value string) time.Time {
-	return ParseByLayout(value,DATE_FORMAT_LAYOUT)
+	return ParseByLayout(value, DATE_FORMAT_LAYOUT)
 }
 
 /**
@@ -62,7 +66,7 @@ func ParseDate(value string) time.Time {
 @return	Time	时间类型
  */
 func ParseTime(value string) time.Time {
-	return ParseByLayout(value,TIME_FORMAT_LAYOUT)
+	return ParseByLayout(value, TIME_FORMAT_LAYOUT)
 }
 
 /**
@@ -72,7 +76,7 @@ func ParseTime(value string) time.Time {
 @return	Time	时间类型
  */
 func ParseDateTime(value string) time.Time {
-	return ParseByLayout(value,DATE_TIME_FORMAT_LAYOUT)
+	return ParseByLayout(value, DATE_TIME_FORMAT_LAYOUT)
 }
 
 /**
@@ -81,9 +85,9 @@ func ParseDateTime(value string) time.Time {
 @param	layout	转换模板
 @return	Time	时间类型
  */
-func ParseByLayout(value string ,layout string) time.Time {
+func ParseByLayout(value string, layout string) time.Time {
 	loc, _ := time.LoadLocation("Local")
-	t,err:=time.ParseInLocation(layout,value,loc)
+	t, err := time.ParseInLocation(layout, value, loc)
 	if err != nil {
 		fmt.Println(err)
 	}
