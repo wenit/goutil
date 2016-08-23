@@ -61,7 +61,6 @@ func WriteFile(fileName string, data string) error {
 	if err != nil {
 		return err
 	}
-
 	return err
 }
 
