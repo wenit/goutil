@@ -10,6 +10,7 @@ import (
 @param	m	map对象
 @param	key	获取map数据的key
 @param	def	默认值
+@return interface{}
  */
 func GetValue(m map[string]interface{}, key string, def... interface{}) (interface{}) {
 	v, ok := m[key]
@@ -28,6 +29,7 @@ func GetValue(m map[string]interface{}, key string, def... interface{}) (interfa
 @param	m	map对象
 @param	key	获取map数据的key
 @param	def	默认值
+@return string
  */
 func GetStringValue(m map[string]interface{}, key string, def... interface{}) string {
 	v := GetValue(m, key, def...)
@@ -40,6 +42,7 @@ func GetStringValue(m map[string]interface{}, key string, def... interface{}) st
 @param	m	map对象
 @param	key	获取map数据的key
 @param	def	默认值
+@return int
  */
 func GetIntValue(m map[string]interface{}, key string, def... interface{}) int {
 	v := GetValue(m, key, def...)
@@ -63,6 +66,7 @@ func GetIntValue(m map[string]interface{}, key string, def... interface{}) int {
 @param	m	map对象
 @param	key	获取map数据的key
 @param	def	默认值
+@return float64
  */
 func GetFloatValue(m map[string]interface{}, key string, def... interface{}) float64 {
 	v := GetValue(m, key, def...)
@@ -89,6 +93,7 @@ func GetFloatValue(m map[string]interface{}, key string, def... interface{}) flo
 @param	m	map对象
 @param	key	获取map数据的key
 @param	def	默认值
+@return bool
  */
 func GetBoolValue(m map[string]interface{}, key string, def... interface{}) bool {
 	v := GetValue(m, key, def...)
